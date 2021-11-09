@@ -1,0 +1,19 @@
+.banner{
+    height: 500px;
+
+}
+.Skip_color{
+    color: rgb(128, 0, 107);
+}
+.banner-text{
+    
+}
+.Button{
+    color: white;
+    background-image: linear-gradient(rgb(65, 138, 24),rgb(255, 0, 140));
+    text-decoration: none;
+    font-size: 20px;
+    border:solid black;
+    border-radius: 20px;
+    padding: 10px 40px;
+}
