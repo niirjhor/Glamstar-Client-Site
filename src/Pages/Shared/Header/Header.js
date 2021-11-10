@@ -50,13 +50,13 @@ const Header = () => {
                         Purchase
                     </NavLink>
                     <NavLink className='navlists'
-                        to="/reviews"
+                        to="/dashboard"
                         activeStyle={{
                             fontWeight: "bold",
                             color: "red"
                         }}
                     >
-                        Reviews
+                        Dashboard
                     </NavLink>
 
                     {user?.email ?

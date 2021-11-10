@@ -16,6 +16,7 @@ import Purchase from './Pages/Purchase/Purchase';
 import Login from './Pages/Login/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthProvider from './Pages/context/AuthProvider';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -36,6 +37,12 @@ function App() {
             <Route path='/login'>
               <Login></Login>
             </Route>
+            <PrivateRoute path='/purchase/:purchaseId'>
+              <Purchase></Purchase>
+            </PrivateRoute>
+            <PrivateRoute path='/dashboard'>
+              <Dashboard></Dashboard>
+            </PrivateRoute>
             <Route path='*'>
               <NotFound></NotFound>
             </Route>
