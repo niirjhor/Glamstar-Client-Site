@@ -18,7 +18,7 @@ const Products = () => {
 
                 <Row xs={1} md={3} className="g-4">
                     {
-                        products.map(product => <Product product={product}></Product>)
+                        products.slice(0, 6).map(product => <Product product={product}></Product>)
                     }
 
                 </Row>

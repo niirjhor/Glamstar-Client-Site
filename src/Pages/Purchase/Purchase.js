@@ -10,7 +10,7 @@ const Purchase = () => {
     const { purchaseId } = useParams();
     const location = useLocation();
     const history = useHistory();
-    const redirect_url = location.state?.from || '/myorders';
+    const redirect_url = location.state?.from || '/dashboard/myorders';
 
 
     const { user } = useAuth();
@@ -54,8 +54,8 @@ const Purchase = () => {
 
                 {bookings.price && <input readOnly={true} {...register("price")} defaultValue={bookings.price} />}
                 <br />
-                {bookings.tourName &&
-                    <input readOnly={true} {...register("tourName", { required: true })} value={bookings.tourName} />}
+                {bookings.productName &&
+                    <input readOnly={true} {...register("productName", { required: true })} value={bookings.productName} />}
 
                 <br />
                 <input type='text' {...register("Address", { required: true, maxLength: 50 })} placeholder="Full Address" />

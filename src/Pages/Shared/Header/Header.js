@@ -40,15 +40,15 @@ const Header = () => {
                     >
                         Explore
                     </NavLink>
-                    <NavLink className='navlists'
+                    {/* <NavLink className='navlists'
                         to="/purchase"
                         activeStyle={{
                             fontWeight: "bold",
                             color: "red"
                         }}
                     >
-                        Purchase
-                    </NavLink>
+                        Purchassss
+                    </NavLink> */}
                     <NavLink className='navlists'
                         to="/dashboard"
                         activeStyle={{

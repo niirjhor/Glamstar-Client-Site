@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Dashboard.css'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+    useRouteMatch
+} from "react-router-dom";
+import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
+import Pay from '../NormalUser/Pay/Pay';
+import MyOrders from '../NormalUser/MyOrders/MyOrders';
+import Reviews from '../../Home/Reviews/Reviews';
+import Logout from '../Logout/Logout';
+import AddAProduct from '../Admin/AddAProduct/AddAProduct';
+import ManageAllOrders from '../Admin/ManageAllOrders/ManageAllOrders';
+import ManageProducts from '../Admin/ManageProducts/ManageProducts';
+import useAuth from '../../../hooks/useAuth';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+
 
 const Dashboard = () => {
+    let { path, url } = useRouteMatch();
+    const { admin } = useAuth();
+
+
+
     return (
         <div>
             <div class="container-fluid display-table home">
@@ -11,46 +35,84 @@ const Dashboard = () => {
 
                         </div>
                         <div class="navi p-3 g-5">
+
                             <ul>
-                                <li class="active">
-                                    <a href="#"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Pay</span>
-                                    </a>
-                                </li>
+                                {admin &&
+
+                                    <li>
+                                        <Link to={`${url}/makeAdmin`}><button className='btn btn-warning'>Make Admin</button></Link>
+                                    </li>
+                                }
+                                {!admin &&
+                                    <li>
+                                        <Link to={`${url}/pay`}><button className='btn btn-warning'>Pay</button></Link>
+                                    </li>
+                                }
+                                {!admin &&
+                                    <li>
+                                        <Link to={`${url}/myorders`}><button className='btn btn-warning'>My Orders</button></Link>
+                                    </li>
+                                }
+                                {!admin &&
+                                    <li>
+                                        <Link to={`${url}/review`}><button className='btn btn-warning'>Review</button></Link>
+                                    </li>
+                                }
+
+                                {admin &&
+                                    <li>
+                                        <Link to={`${url}/manageallorders`}><button className='btn btn-warning'>Manage All Orders</button></Link>
+                                    </li>
+                                }
+                                {admin &&
+                                    <li>
+                                        <Link to={`${url}/addproduct`}><button className='btn btn-warning'>Add A Product</button></Link>
+                                    </li>
+                                }
+                                {admin &&
+                                    <li>
+                                        <Link to={`${url}/manageproducts`}><button className='btn btn-warning'>Manage Products</button></Link>
+                                    </li>
+                                }
                                 <li>
-                                    <a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">My Orders</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Statistics</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Review</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Logout</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Setting</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Manage All Orders</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Add A Product</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Make Admin</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Manage Products</span></a>
+                                    <Link to={`${url}/logout`}><button className='btn btn-warning'>Logout</button></Link>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div className='col-md-10'>
+                        <Switch>
 
+                            <Route exact path={`${path}/pay`}>
+                                <Pay></Pay>
+                            </Route>
+                            <Route exact path={`${path}/myorders`}>
+                                <MyOrders></MyOrders>
+                            </Route>
+                            <Route exact path={`${path}/review`}>
+                                <Reviews></Reviews>
+                            </Route>
+                            <Route exact path={`${path}/logout`}>
+                                <Logout></Logout>
+                            </Route>
+                            <AdminRoute exact path={`${path}/manageallorders`}>
+                                <ManageAllOrders></ManageAllOrders>
+                            </AdminRoute>
+                            <AdminRoute exact path={`${path}/makeAdmin`}>
+                                <MakeAdmin></MakeAdmin>
+                            </AdminRoute>
+                            <AdminRoute exact path={`${path}/addproduct`}>
+                                <AddAProduct></AddAProduct>
+                            </AdminRoute>
+                            <AdminRoute exact path={`${path}/manageproducts`}>
+                                <ManageProducts></ManageProducts>
+                            </AdminRoute>
+
+                        </Switch>
                     </div>
                 </div>
             </div>
+
         </div>
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router';
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -10,7 +10,8 @@ import useFirbase from '../../hooks/useFirebase';
 const Login = () => {
     const auth = getAuth();
     const [username, setUserName] = useState('');
-    const { setIsLoading } = useAuth();
+    const { setIsLoading, user, setUser } = useAuth();
+ 
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -38,8 +39,8 @@ const Login = () => {
         e.preventDefault();
 
         console.log(email, password);
-        if (password.length < 8) {
-            setError('Password must be atleast 8 characters')
+        if (password.length <= 5) {
+            setError('Password must be atleast 6 characters')
             return;
         }
 
@@ -66,15 +67,17 @@ const Login = () => {
             })
 
     }
-    const createNewUser = (email, password) => {
+    const createNewUser = (email, password, name) => {
         createUserWithEmailAndPassword(auth, email, password)
 
-            .then((result) => {
-                const user = result.user;
-                console.log(user);
+            .then((userCredential) => {
+                const newUser = { email, displayName: name };
+                setUser(newUser)
                 setError('');
                 verifyEmail();
+                saveUser(email, name)
                 setName();
+
                 history.push(redirect_url)
             })
             .catch(error => {
@@ -97,6 +100,18 @@ const Login = () => {
             .catch(error => {
                 setError(error.message);
             })
+    }
+ 
+    const saveUser = (email, displayName) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
     }
     return (
         <div className="container">
@@ -139,7 +154,9 @@ const Login = () => {
 
 
             </div>
+
         </div>
+
     );
 };
 
