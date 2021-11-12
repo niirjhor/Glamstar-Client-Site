@@ -8,7 +8,7 @@ import { useHistory } from 'react-router';
 
 const Review = () => {
     const { user } = useAuth();
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const history = useHistory();
     const redirect_uri = '/home';
@@ -30,14 +30,22 @@ const Review = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
 
 
-                <input {...register("name", { required: true, maxLength: 30 })} placeholder="Share Your Name" />
+                {user.displayName &&
+                    <input readOnly={true}{...register("name", { required: true, maxLength: 50 })} value={user.displayName} />
+                }
                 <br />
+                <label>Please share your opinion</label>
                 <textarea {...register("description", { required: true, maxLength: 200 })} placeholder="Description" />
+                <br />
+                <label>Your Profession</label>
+                <input {...register("profession", { required: true, maxLength: 200 })} placeholder="Profession" />
 
 
                 <br />
-                <input type='number' {...register("rating", { required: true, min: 1, max: 5 })} placeholder="Rating" />
-
+                <input type='number' {...register("rating", { min: 1, max: 5 })} placeholder="Rating" />
+                {errors.rating && (
+                    <p>You rating should be between 1 to 5</p>
+                )}
                 <br />
 
 

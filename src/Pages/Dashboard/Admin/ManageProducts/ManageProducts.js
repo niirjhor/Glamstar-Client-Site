@@ -47,7 +47,7 @@ const ManageProducts = () => {
                                 <th>Product Name</th>
 
 
-                                <th>Image Url</th>
+                                <th>Price</th>
 
                                 <th>Delete Product</th>
                             </tr>
@@ -58,7 +58,7 @@ const ManageProducts = () => {
                                     <td>{index + 1}</td>
                                     <td>{order?.productName}</td>
 
-                                    <td className='text-wrap style="width: 6rem;"'>{order?.image}</td>
+                                    <td className='text-wrap style="width: 6rem;"'>{order?.price}</td>
 
                                     <td>
                                         <button onClick={() => handleDelete(order._id)} className="btn bg-warning p-2">Delete</button>
