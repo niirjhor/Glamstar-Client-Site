@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { FloatingLabel, Form } from 'react-bootstrap';
+import { Alert, FloatingLabel, Form } from 'react-bootstrap';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
+    const [success, setSuccess] = useState(false);
 
     const handleonBlur = e => {
-        setEmail(e.target.value)
+        setEmail(e.target.value);
+
     }
     const handleAdmin = e => {
         const user = { email };
@@ -17,9 +19,15 @@ const MakeAdmin = () => {
             body: JSON.stringify(user)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.modifiedCount) {
+                    console.log(data);
+                    setSuccess(true);
+                }
+            })
 
         e.preventDefault()
+
 
     }
     return (
@@ -36,8 +44,9 @@ const MakeAdmin = () => {
                         <Form.Control type="email" placeholder="name@example.com" />
                     </FloatingLabel>
                 </>
-                <button className='btn btn-secondary m-3' type="submit">Make Admin</button>
+                <button className='btn btn-info m-3' type="submit">Make Admin</button>
             </form>
+            {success && <Alert severity="success">Made Admin successful!</Alert>}
         </div>
     );
 };

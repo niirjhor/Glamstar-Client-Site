@@ -37,7 +37,7 @@ const ManageProducts = () => {
         }
     }
     return (
-        <div className="container table-responsive">
+        <div className="container">
             <Row>
                 <Col>
                     <Table responsive>

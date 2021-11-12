@@ -18,6 +18,8 @@ import ManageAllOrders from '../Admin/ManageAllOrders/ManageAllOrders';
 import ManageProducts from '../Admin/ManageProducts/ManageProducts';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import DashboardHome from '../DashboardHome/DashboardHome';
+import Review from '../NormalUser/Review/Review';
 
 
 const Dashboard = () => {
@@ -82,6 +84,9 @@ const Dashboard = () => {
                     </div>
                     <div className='col-md-10'>
                         <Switch>
+                            <Route exact path={`${path}/`}>
+                                <DashboardHome></DashboardHome>
+                            </Route>
 
                             <Route exact path={`${path}/pay`}>
                                 <Pay></Pay>
@@ -90,7 +95,7 @@ const Dashboard = () => {
                                 <MyOrders></MyOrders>
                             </Route>
                             <Route exact path={`${path}/review`}>
-                                <Reviews></Reviews>
+                                <Review></Review>
                             </Route>
                             <Route exact path={`${path}/logout`}>
                                 <Logout></Logout>

@@ -19,7 +19,7 @@ const Explore = () => {
                     {
                         products.map(product => <ExploreProducts product={product}></ExploreProducts>)
                     }
-                    {products.length}
+
 
                 </Row>
             </div>
