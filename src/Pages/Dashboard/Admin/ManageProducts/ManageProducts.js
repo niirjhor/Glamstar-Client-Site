@@ -37,42 +37,40 @@ const ManageProducts = () => {
         }
     }
     return (
-        <div className="container">
-            <Row>
-                <Col>
-                    <Table responsive>
-                        <thead>
-                            <tr>
-                                <th>Serial</th>
-                                <th>Product Name</th>
 
 
-                                <th>Price</th>
-
-                                <th>Delete Product</th>
-                            </tr>
-                        </thead>
-                        {orders?.map((order, index) => (
-                            <tbody>
-                                <tr>
-                                    <td>{index + 1}</td>
-                                    <td>{order?.productName}</td>
-
-                                    <td className='text-wrap style="width: 6rem;"'>{order?.price}</td>
-
-                                    <td>
-                                        <button onClick={() => handleDelete(order._id)} className="btn bg-warning p-2">Delete</button>
-                                    </td>
+        <Table responsive>
+            <thead>
+                <tr>
+                    <th>Ser</th>
+                    <th>Product Name</th>
 
 
-                                </tr>
-                            </tbody>
-                        ))}
-                    </Table>
-                </Col>
-            </Row>
+                    <th>Price</th>
 
-        </div>
+                    <th>Delete Product</th>
+                </tr>
+            </thead>
+            {orders?.map((order, index) => (
+                <tbody>
+                    <tr>
+                        <td>{index + 1}</td>
+                        <td>{order?.productName}</td>
+
+                        <td className='text-wrap style="width: 6rem;"'>{order?.price}</td>
+
+                        <td>
+                            <button onClick={() => handleDelete(order._id)} className="btn bg-warning p-2">Delete</button>
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            ))}
+        </Table>
+
+
+
     );
 };
 
