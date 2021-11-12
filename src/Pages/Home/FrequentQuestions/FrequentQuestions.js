@@ -4,7 +4,7 @@ import './FrequentQues.css'
 
 const FrequentQuestions = () => {
     return (
-        <div>
+        <div className='container'>
             <h1 class="fw-bold text-center py-5">Frequently Asked<span class="text-danger"> Questions</span></h1>
             <div class="container">
                 <div class="row d-flex justify-content-center align-items-center">
