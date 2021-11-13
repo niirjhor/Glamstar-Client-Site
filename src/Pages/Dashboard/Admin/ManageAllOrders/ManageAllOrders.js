@@ -73,47 +73,52 @@ const ManageAllOrders = () => {
 
     }
 
+    const pageContainer = {
+        width: "100",
+        overflow: "hidden"
 
+    }
 
     return (
-
-        <Table responsive>
-            <thead>
-                <tr>
-                    <th>Serial</th>
-                    <th>Booked Package</th>
-                    <th>User Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Delete Order</th>
-                    <th>Action</th>
-                    <th>Order Status</th>
-                </tr>
-            </thead>
-            {orders?.map((order, index) => (
-                <tbody>
+        <div className="container" style={pageContainer}>
+            <Table responsive="sm" className="mb-5 container" >
+                <thead>
                     <tr>
-                        <td>{index + 1}</td>
-                        <td>{order?.productName}</td>
-                        <td>{order?.name}</td>
-                        <td>{order?.email}</td>
-                        <td>{order?.phoneNumber}</td>
-                        <td>
-                            <button onClick={() => handleDelete(order._id)} className="btn bg-warning p-2">Delete</button>
-                        </td>
-                        <td>
-                            {order?.status === "Shipped" ?
-                                <span> Approved</span> :
-                                <button onClick={() => handleApproval(order)} className="btn bg-warning p-2">Approve</button>}
-                        </td>
-                        <td>
-                            <button className="btn btn-warning" >{order.status}</button>
-                        </td>
-
+                        <th>Serial</th>
+                        <th>Booked Package</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Delete Order</th>
+                        <th>Action</th>
+                        <th>Order Status</th>
                     </tr>
-                </tbody>
-            ))}
-        </Table>
+                </thead>
+                {orders?.map((order, index) => (
+                    <tbody>
+                        <tr>
+                            <td>{index + 1}</td>
+                            <td>{order?.productName}</td>
+                            <td>{order?.name}</td>
+                            <td>{order?.email}</td>
+                            <td>{order?.phoneNumber}</td>
+                            <td>
+                                <button onClick={() => handleDelete(order._id)} className="btn bg-warning p-2">Delete</button>
+                            </td>
+                            <td>
+                                {order?.status === "Shipped" ?
+                                    <span> Approved</span> :
+                                    <button onClick={() => handleApproval(order)} className="btn bg-warning p-2">Approve</button>}
+                            </td>
+                            <td>
+                                <button className="btn btn-warning" >{order.status}</button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                ))}
+            </Table>
+        </div>
 
     );
 };

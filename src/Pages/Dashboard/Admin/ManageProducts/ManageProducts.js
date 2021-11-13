@@ -36,38 +36,46 @@ const ManageProducts = () => {
             handleDelete
         }
     }
+
+    const pageContainer = {
+        width: "100",
+        overflow: "hidden"
+
+    }
     return (
 
 
-        <Table responsive>
-            <thead>
-                <tr>
-                    <th>Ser</th>
-                    <th>Product Name</th>
-
-
-                    <th>Price</th>
-
-                    <th>Delete Product</th>
-                </tr>
-            </thead>
-            {orders?.map((order, index) => (
-                <tbody>
+        <div className="container" style={pageContainer}>
+            <Table responsive="sm" className="mb-5 container" >
+                <thead>
                     <tr>
-                        <td>{index + 1}</td>
-                        <td>{order?.productName}</td>
-
-                        <td className='text-wrap style="width: 6rem;"'>{order?.price}</td>
-
-                        <td>
-                            <button onClick={() => handleDelete(order._id)} className="btn bg-warning p-2">Delete</button>
-                        </td>
+                        <th>Ser</th>
+                        <th>Product Name</th>
 
 
+                        <th>Price</th>
+
+                        <th>Delete Product</th>
                     </tr>
-                </tbody>
-            ))}
-        </Table>
+                </thead>
+                {orders?.map((order, index) => (
+                    <tbody>
+                        <tr>
+                            <td>{index + 1}</td>
+                            <td>{order?.productName}</td>
+
+                            <td className='text-wrap style="width: 6rem;"'>{order?.price}</td>
+
+                            <td>
+                                <button onClick={() => handleDelete(order._id)} className="btn bg-warning p-2">Delete</button>
+                            </td>
+
+
+                        </tr>
+                    </tbody>
+                ))}
+            </Table>
+        </div>
 
 
 

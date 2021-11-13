@@ -11,8 +11,8 @@ import {
 import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
 import Pay from '../NormalUser/Pay/Pay';
 import MyOrders from '../NormalUser/MyOrders/MyOrders';
-import Reviews from '../../Home/Reviews/Reviews';
-import Logout from '../Logout/Logout';
+
+
 import AddAProduct from '../Admin/AddAProduct/AddAProduct';
 import ManageAllOrders from '../Admin/ManageAllOrders/ManageAllOrders';
 import ManageProducts from '../Admin/ManageProducts/ManageProducts';
@@ -24,7 +24,7 @@ import Review from '../NormalUser/Review/Review';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
-    const { admin } = useAuth();
+    const { admin, user, logOut } = useAuth();
 
 
 
@@ -76,9 +76,11 @@ const Dashboard = () => {
                                         <Link to={`${url}/manageproducts`}><button className='btn btn-warning'>Manage Products</button></Link>
                                     </li>
                                 }
-                                <li>
-                                    <Link to={`${url}/logout`}><button className='btn btn-warning'>Logout</button></Link>
-                                </li>
+                                {user?.email &&
+                                    <li>
+                                        <Link to={`${url}/logout`}><button className='btn btn-warning' onClick={logOut}>Logout</button></Link>
+                                    </li>
+                                }
                             </ul>
                         </div>
                     </div>
@@ -97,9 +99,7 @@ const Dashboard = () => {
                             <Route exact path={`${path}/review`}>
                                 <Review></Review>
                             </Route>
-                            <Route exact path={`${path}/logout`}>
-                                <Logout></Logout>
-                            </Route>
+
                             <AdminRoute exact path={`${path}/manageallorders`}>
                                 <ManageAllOrders></ManageAllOrders>
                             </AdminRoute>
