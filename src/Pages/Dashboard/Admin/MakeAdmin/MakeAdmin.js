@@ -30,10 +30,11 @@ const MakeAdmin = () => {
                 if (data.modifiedCount) {
                     console.log(data);
                     alert("Admin is made successfully")
-                    document.getElementById('email').value = ""
+
 
 
                 }
+                document.getElementById('email').value = "";
             })
 
         e.preventDefault()
