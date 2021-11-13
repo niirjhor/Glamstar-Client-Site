@@ -45,8 +45,8 @@ const ManageProducts = () => {
     return (
 
 
-        <div style={{ overflowX: "auto" }}>
-            <Table className="mb-5 container" >
+        <div style={pageContainer}>
+            <Table className="mb-5" >
                 <thead>
                     <tr>
                         <th>Ser</th>

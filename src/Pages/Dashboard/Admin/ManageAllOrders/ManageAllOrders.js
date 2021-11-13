@@ -81,7 +81,7 @@ const ManageAllOrders = () => {
 
     return (
 
-        <div className="container" style={pageContainer}>
+        <div className="m-0 p-0" style={pageContainer}>
             <Table responsive="sm" className="mb-5 container" >
                 <thead>
                     <tr>
