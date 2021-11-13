@@ -38,61 +38,64 @@ const MyOrders = () => {
 
     const matchedData = orders.filter(order => order?.email === user?.email)
 
-
+    const pageContainer = {
+        width: "100",
+        overflow: "hidden"
+    }
 
     return (
-        <div>
-            <div className="container">
 
-                <h1 className="m-5 p-5">MY ORDERS</h1>
-                <Table responsive className="mb-5">
-                    <thead>
-                        <tr className="bg-dark text-white">
-                            <th>Product Name</th>
+        <div className="container" style={pageContainer}>
 
-                            <th>Full Name</th>
+            <h1 className="m-5 p-5">MY ORDERS</h1>
+            <Table responsive className="mb-5">
+                <thead>
+                    <tr className="bg-dark text-white">
+                        <th>Product Name</th>
 
-                            <th>Email</th>
+                        <th>Full Name</th>
 
-                            <th>Address</th>
-                            <th>Phone Number</th>
+                        <th>Email</th>
+
+                        <th>Address</th>
+                        <th>Phone Number</th>
 
 
-                            <th>Price</th>
+                        <th>Price</th>
 
-                            <th>Order Status</th>
-                            <th>Action</th>
+                        <th>Order Status</th>
+                        <th>Action</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            matchedData.map(order =>
-                                <tr>
-                                    <td>{order?.productName} </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        matchedData.map(order =>
+                            <tr>
+                                <td>{order?.productName} </td>
 
-                                    <td>{order?.name} </td>
+                                <td>{order?.name} </td>
 
-                                    <td>{order?.email} </td>
+                                <td>{order?.email} </td>
 
-                                    <td>{order?.Address} </td>
-                                    <td>{order?.phoneNumber} </td>
+                                <td>{order?.Address} </td>
+                                <td>{order?.phoneNumber} </td>
 
-                                    <td>{order?.price} </td>
+                                <td>{order?.price} </td>
 
-                                    <td className="fw-bold">{order.status} </td>
+                                <td className="fw-bold">{order.status} </td>
 
-                                    <button className="btn bg-danger text-white" onClick={() => handleDelete(order._id)}>Cancel</button>
-                                </tr>
-                            )}
-                    </tbody>
-                </Table>
-                <div className="m-5">
-                    <h4 >
-                        Total Orders ={matchedData.length}
-                    </h4></div>
-            </div>
+                                <button className="btn bg-danger text-white" onClick={() => handleDelete(order._id)}>Cancel</button>
+                            </tr>
+                        )}
+                </tbody>
+            </Table>
+            <div className="m-5">
+                <h4 >
+                    Total Orders ={matchedData.length}
+                </h4></div>
         </div>
+
     );
 };
 

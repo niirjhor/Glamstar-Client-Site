@@ -30,6 +30,7 @@ const Dashboard = () => {
 
     return (
         <div>
+
             <div class="container-fluid display-table home">
                 <div class="row display-table-row">
                     <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
@@ -117,6 +118,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+
 
         </div>
 

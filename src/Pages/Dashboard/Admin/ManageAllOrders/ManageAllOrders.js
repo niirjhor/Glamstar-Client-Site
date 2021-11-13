@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import "./ManageOrders.css"
 
 const ManageAllOrders = () => {

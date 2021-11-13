@@ -6,13 +6,14 @@ import { useHistory } from 'react-router';
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
-    const { reset } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
 
     const history = useHistory();
 
     const handleonBlur = e => {
         setEmail(e.target.value);
+        setEmail('');
 
     }
     const handleAdmin = e => {

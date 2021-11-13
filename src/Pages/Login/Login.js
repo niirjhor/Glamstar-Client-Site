@@ -120,7 +120,7 @@ const Login = () => {
                 {!isLogin && <div className="row mb-3">
                     <label htmlFor="inputName" className="col-sm-2 col-form-label">Name</label>
                     <div className="col-sm-10">
-                        <input type="text" onBlur={handleNameChange} className="form-control w-75" id="inputName" placeholder="Your Name" />
+                        <input type="text" onBlur={handleNameChange} className="form-control w-75" id="inputName" placeholder="Your Name" required />
                     </div>
                 </div>}
                 <div className="row mb-3">

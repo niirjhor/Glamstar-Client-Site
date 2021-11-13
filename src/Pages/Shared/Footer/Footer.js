@@ -5,7 +5,7 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className='bg-dark'>
-            <ModalFooter className="font-small text-dark justify-content-center mt-5">
+            <ModalFooter className="font-small text-dark justify-content-center ">
                 <Container fluid className="bg-dark">
                     <Row>
                         <Col>
@@ -61,7 +61,7 @@ const Footer = () => {
 
                         </Col>
                     </Row>
-                    <p className='text-footer text-center text-white justify-content-center mx-auto py-4'>© Copyright Glamstar 2021 | All Rights Reserved | Privacy Policy</p>
+                    <p className='text-footer text-center text-white justify-content-center mx-auto'>© Copyright Glamstar 2021 | All Rights Reserved | Privacy Policy</p>
                 </Container>
 
             </ModalFooter>
