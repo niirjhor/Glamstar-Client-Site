@@ -85,7 +85,7 @@ const ManageAllOrders = () => {
             <Table responsive="sm" className="mb-5 container" >
                 <thead>
                     <tr>
-
+                        <th>Serial</th>
                         <th>Booked Package</th>
                         <th>User Name</th>
 
@@ -98,7 +98,7 @@ const ManageAllOrders = () => {
                 {orders?.map((order, index) => (
                     <tbody>
                         <tr>
-
+                            <td>{index + 1}</td>
                             <td>{order?.productName}</td>
                             <td>{order?.name}</td>
 
