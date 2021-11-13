@@ -80,14 +80,15 @@ const ManageAllOrders = () => {
     }
 
     return (
+
         <div className="container" style={pageContainer}>
-            <Table style={{ overflowX: "auto" }} responsive="sm" className="mb-5 container" >
+            <Table responsive="sm" className="mb-5 container" >
                 <thead>
                     <tr>
-                        <th>Serial</th>
+
                         <th>Booked Package</th>
                         <th>User Name</th>
-                        <th>Email</th>
+
                         <th>Phone Number</th>
                         <th>Delete Order</th>
                         <th>Action</th>
@@ -97,10 +98,10 @@ const ManageAllOrders = () => {
                 {orders?.map((order, index) => (
                     <tbody>
                         <tr>
-                            <td>{index + 1}</td>
+
                             <td>{order?.productName}</td>
                             <td>{order?.name}</td>
-                            <td>{order?.email}</td>
+
                             <td>{order?.phoneNumber}</td>
                             <td>
                                 <button onClick={() => handleDelete(order._id)} className="btn bg-warning p-2">Delete</button>

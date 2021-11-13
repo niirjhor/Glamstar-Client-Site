@@ -33,7 +33,7 @@ const Dashboard = () => {
 
             <div class="container-fluid display-table home">
                 <div class="row display-table-row">
-                    <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+                    <div class="col-md-1 hidden-xs display-table-cell v-align box" id="navigation">
                         <div class="logo">
 
                         </div>
