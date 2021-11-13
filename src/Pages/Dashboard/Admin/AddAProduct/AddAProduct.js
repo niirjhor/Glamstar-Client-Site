@@ -12,7 +12,7 @@ const AddAProduct = () => {
 
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/products', data)
+        axios.post('https://evening-ocean-17101.herokuapp.com/products', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Packages added successfully');

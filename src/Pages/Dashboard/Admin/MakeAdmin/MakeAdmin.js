@@ -7,7 +7,7 @@ const MakeAdmin = () => {
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
     const { reset } = useForm();
-    const redirect_uri = '/dashboard/makeAdmin'
+
 
     const history = useHistory();
 
@@ -17,7 +17,7 @@ const MakeAdmin = () => {
     }
     const handleAdmin = e => {
         const user = { email };
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://evening-ocean-17101.herokuapp.com/users/admin', {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
@@ -28,8 +28,9 @@ const MakeAdmin = () => {
             .then(data => {
                 if (data.modifiedCount) {
                     console.log(data);
-                    history.push(redirect_uri);
-                    reset();
+                    alert("Admin is made successfully")
+
+
                 }
             })
 

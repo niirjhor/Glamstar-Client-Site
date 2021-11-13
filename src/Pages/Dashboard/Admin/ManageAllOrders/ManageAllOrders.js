@@ -7,7 +7,7 @@ const ManageAllOrders = () => {
     //GET User Data
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/bookingConfirmations')
+        fetch('https://evening-ocean-17101.herokuapp.com/bookingConfirmations')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -17,7 +17,7 @@ const ManageAllOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure to delete the user?")
         if (proceed) {
-            const url = `http://localhost:5000/bookingConfirmations/${id}`
+            const url = `https://evening-ocean-17101.herokuapp.com/bookingConfirmations/${id}`
             fetch(url, {
                 method: "DELETE"
             })
@@ -43,7 +43,7 @@ const ManageAllOrders = () => {
         const proceed = window.confirm("Are you sure to approve the Order?")
         if (proceed) {
             order.status = "Shipped"
-            const url = `http://localhost:5000/bookingConfirmations/${order._id}`
+            const url = `https://evening-ocean-17101.herokuapp.com/bookingConfirmations/${order._id}`
             fetch(url, {
                 method: 'PUT',
                 headers: {

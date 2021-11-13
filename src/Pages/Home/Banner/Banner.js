@@ -7,10 +7,10 @@ const Banner = () => {
     return (
         <div className='container-fluid'>
             <div className='row'>
-                <div className='col-lg-5 col-sm-1 banner-text bg-light'>
+                <div className='col-lg-5 col-sm-1 banner-img banner-text bg-light'>
                     <div className="pt-5">
                         <h1><span className="text-danger">Welcome</span><br />
-                            to <span className="Skip_color"> Glamstar</span></h1>
+                            to <span className="Skip_color fw-bold"> Glamstar</span></h1>
                         <br />
                         <br />
                         <h2>A <span className="Skip_color"> Online Juwelry </span>  shop for  women around the World!</h2><br />

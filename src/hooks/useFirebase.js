@@ -37,7 +37,7 @@ const useFirbase = () => {
         setIsLoading(true);
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://evening-ocean-17101.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])

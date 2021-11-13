@@ -14,7 +14,7 @@ const Review = () => {
     const redirect_uri = '/home';
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://evening-ocean-17101.herokuapp.com/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Review given successfully');

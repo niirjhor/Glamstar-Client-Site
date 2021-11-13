@@ -49,15 +49,17 @@ const Header = () => {
                     >
                         Purchassss
                     </NavLink> */}
-                    <NavLink className='navlists'
-                        to="/dashboard"
-                        activeStyle={{
-                            fontWeight: "bold",
-                            color: "red"
-                        }}
-                    >
-                        Dashboard
-                    </NavLink>
+                    {user?.email &&
+                        <NavLink className='navlists'
+                            to="/dashboard"
+                            activeStyle={{
+                                fontWeight: "bold",
+                                color: "red"
+                            }}
+                        >
+                            Dashboard
+                        </NavLink>
+                    }
 
                     {user?.email ?
                         <Button className='ms-5' onClick={logOut} variant="light">Logout</Button> :

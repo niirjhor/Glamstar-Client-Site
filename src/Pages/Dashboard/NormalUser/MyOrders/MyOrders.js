@@ -7,7 +7,7 @@ const MyOrders = () => {
 
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/bookingConfirmations')
+        fetch('https://evening-ocean-17101.herokuapp.com/bookingConfirmations')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -16,7 +16,7 @@ const MyOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure to cancel the booking?")
         if (proceed) {
-            const url = `http://localhost:5000/bookingConfirmations/${id}`;
+            const url = `https://evening-ocean-17101.herokuapp.com/bookingConfirmations/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

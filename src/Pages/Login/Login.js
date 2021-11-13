@@ -11,7 +11,7 @@ const Login = () => {
     const auth = getAuth();
     const [username, setUserName] = useState('');
     const { setIsLoading, user, setUser } = useAuth();
- 
+
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -19,7 +19,7 @@ const Login = () => {
     const [isLogin, setIsLogin] = useState(false);
     const location = useLocation();
     const history = useHistory();
-    const redirect_url = location.state?.from || '/home';
+    const redirect_url = location.state?.from || '/dashboard';
     console.log('came from', location.state?.from);
 
     const toggleLogin = e => {
@@ -101,10 +101,10 @@ const Login = () => {
                 setError(error.message);
             })
     }
- 
+
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://evening-ocean-17101.herokuapp.com/users', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

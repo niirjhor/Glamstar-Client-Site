@@ -18,7 +18,7 @@ const Purchase = () => {
     const [bookings, setBookings] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${purchaseId}`)
+        fetch(`https://evening-ocean-17101.herokuapp.com/products/${purchaseId}`)
             .then(res => res.json())
             .then(data => setBookings(data))
         // 
@@ -26,7 +26,7 @@ const Purchase = () => {
     }, [])
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/bookingConfirmations', data)
+        axios.post('https://evening-ocean-17101.herokuapp.com/bookingConfirmations', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Booking Successfully Done');
