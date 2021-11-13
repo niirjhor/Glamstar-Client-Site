@@ -48,7 +48,7 @@ const MyOrders = () => {
         <div className="container" style={pageContainer}>
 
             <h1 className="m-5 p-5">MY ORDERS</h1>
-            <Table responsive className="mb-5">
+            <Table style={{ overflowX: "auto" }} responsive className="mb-5">
                 <thead>
                     <tr className="bg-dark text-white">
                         <th>Product Name</th>

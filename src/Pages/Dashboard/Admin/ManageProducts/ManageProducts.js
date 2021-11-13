@@ -46,7 +46,7 @@ const ManageProducts = () => {
 
 
         <div className="container" style={pageContainer}>
-            <Table responsive="sm" className="mb-5 container" >
+            <Table style={{ overflowX: "auto" }} responsive="sm" className="mb-5 container" >
                 <thead>
                     <tr>
                         <th>Ser</th>
